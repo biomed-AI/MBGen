@@ -1,0 +1,27 @@
+name: 'dev' # 'debug' and 'test'
+
+parent_dir: '.'
+
+wandb: 'disabled'             # online | offline | disabled
+wandb_name: 'mass_spec_exp'
+gpus: 1                     
+
+decoder: /bigdat2/user/MBGen/decoder.ckpt
+encoder: /bigdat2/user/encoder_canopus.pt
+
+resume: null
+test_only: null
+
+encoder_finetune_strategy: null  # null | freeze | ft-unfold | freeze-unfold | freeze-transformer | ft-transformer
+decoder_finetune_strategy: null  # null | freeze | ft-input | freeze-input | ft-transformer | freeze-transformer | ft-output 
+
+check_val_every_n_epochs: 10
+sample_every_val: 200
+val_samples_to_generate: 10      
+test_samples_to_generate: 100
+num_test_samples: 1000000  
+log_every_steps: 500
+
+evaluate_all_checkpoints: False
+checkpoint_strategy: 'last'
+

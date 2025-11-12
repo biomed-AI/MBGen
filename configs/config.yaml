@@ -1,0 +1,15 @@
+defaults:
+    - _self_
+    - general : general_default
+    - model : model_default
+    - train : train_default
+    # - dataset : fp2mol
+    - dataset : canopus
+    # - dataset : msg
+
+hydra:
+  job:
+    chdir: True
+  run:
+    dir: /bigdat2/user/sunxc/MBGen_output/outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}-${general.name}
+    
